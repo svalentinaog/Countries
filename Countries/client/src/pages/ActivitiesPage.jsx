@@ -19,6 +19,8 @@ export default function ActivitiesPage() {
   const [modalConfirmation, setModalConfirmation] = useState(false);
   const [activityToDelete, setActivityToDelete] = useState(null);
 
+  const [isLoading, setIsLoading] = useState(true);
+
   const handleDeleteActivity = (activity) => {
     setActivityToDelete(activity);
     setModalConfirmation(true);
@@ -68,82 +70,105 @@ export default function ActivitiesPage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    dispatch(activities());
-  }, [dispatch, allactivities]);
-
-  useEffect(() => {}, [allactivities]);
+  useEffect(
+    () => {
+      setIsLoading(true); // Establecer isLoading a true antes de obtener las actividades
+      dispatch(activities())
+        .then(() => {
+          setIsLoading(false); // Establecer isLoading a false después de obtener las actividades
+        })
+        .catch((error) => {
+          console.error("Error fetching activities:", error);
+          setIsLoading(false); // Asegurarse de establecer isLoading a false en caso de error también
+        });
+    },
+    [dispatch],
+    allactivities
+  );
 
   return (
     <BaseLayout>
-      <HeadActivities />
-      <div className="container-activities">
-        <div className="container-allactivities-cards">
-          <div className="allactivities">
-            {fetchActivities && fetchActivities.length > 0 ? (
-              fetchActivities.map((activity, i) => (
-                <ActivityCard
-                  key={i}
-                  activity={activity}
-                  handleDeleteActivity={() => handleDeleteActivity(activity)}
-                />
-              ))
-            ) : (
-              <ErrorActivities />
-            )}
-            {modalConfirmation && (
-              <div className="modal">
-                <div className="modal-content">
-                  <p>
-                    Are you sure you want to eliminate this tourist activity?
-                  </p>
-                  <button className="yesDelete" onClick={confirmDelete}>
-                    Yes
-                  </button>
-                  <button className="noDelete" onClick={closeModal}>
-                    No
-                  </button>
-                </div>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <HeadActivities />
+          <div className="container-activities">
+            <div className="container-allactivities-cards">
+              <div className="allactivities">
+                {fetchActivities && fetchActivities.length > 0 ? (
+                  fetchActivities.map((activity, i) => (
+                    <ActivityCard
+                      key={i}
+                      activity={activity}
+                      handleDeleteActivity={() =>
+                        handleDeleteActivity(activity)
+                      }
+                    />
+                  ))
+                ) : (
+                  <ErrorActivities />
+                )}
+                {modalConfirmation && (
+                  <div className="modal">
+                    <div className="modal-content">
+                      <p>
+                        Are you sure you want to eliminate this tourist
+                        activity?
+                      </p>
+                      <button className="yesDelete" onClick={confirmDelete}>
+                        Yes
+                      </button>
+                      <button className="noDelete" onClick={closeModal}>
+                        No
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
+            </div>
+
+            {/* Renderizar la paginación */}
+            <div
+              className="container-pagination-activities"
+              style={{ marginBottom: "40px", marginTop: "50px" }}
+            >
+              <button
+                className="previous-button"
+                disabled={currentPage === 0}
+                onClick={previousPage}
+              >
+                Previous
+              </button>
+
+              <div>
+                <span className="current-page">{currentPage + 1}</span>
+              </div>
+
+              <button
+                disabled={
+                  currentPage === pagesActivity - 1 || pagesActivity === 0
+                } // Deshabilitar
+                onClick={nextPage}
+                className="next-button"
+              >
+                Next
+              </button>
+            </div>
+
+            {showButton && (
+              <button
+                className={`button-scroll-to-top ${
+                  showButton ? "visible" : ""
+                }`}
+                onClick={scrollToTop}
+              >
+                ↑
+              </button>
             )}
           </div>
-        </div>
-
-        {/* Renderizar la paginación */}
-        <div
-          className="container-pagination-activities"
-          style={{ marginBottom: "40px", marginTop: "50px" }}
-        >
-          <button
-            className="previous-button"
-            disabled={currentPage === 0}
-            onClick={previousPage}
-          >
-            Previous
-          </button>
-
-          <div>
-            <span className="current-page">{currentPage + 1}</span>
-          </div>
-
-          <button
-            disabled={currentPage === pagesActivity - 1 || pagesActivity === 0} // Deshabilitar
-            onClick={nextPage}
-            className="next-button"
-          >
-            Next
-          </button>
-        </div>
-
-        {showButton && (
-          <button
-            className={`button-scroll-to-top ${showButton ? "visible" : ""}`}
-            onClick={scrollToTop}
-          >
-            ↑
-          </button>
-        )}
-      </div>
+        </>
+      )}
     </BaseLayout>
   );
 }

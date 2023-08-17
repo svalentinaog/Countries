@@ -33,16 +33,6 @@ export default function FormPage() {
   // VARIABLES
   const formRef = useRef(null); // Referencia al formulario
 
-  // FUNCIONES
-  // const handleChange = (event) => {
-  //   const property = event.target.name;
-  //   const value = event.target.value;
-
-  //   setForm({ ...form, [property]: value });
-  //   setErrors(Validation({ ...form, [property]: value }));
-  //   console.log(value, property, "Bee 🐝");
-  // };
-
   const handleChange = (event) => {
     const property = event.target.name;
     const value = event.target.value;
@@ -243,14 +233,6 @@ export default function FormPage() {
                 />
               </div>
 
-              {/* <div className="selected-options">
-                {form.countryId.map((selectedId, index) => (
-                  <span key={index} className="selected-option">
-                    {selectedId}
-                  </span>
-                ))}
-              </div> */}
-
               <div className="selected-options">
                 {form.countryId.map((selectedId, index) => {
                   const selectedCountry = allcountries.find(
@@ -272,7 +254,7 @@ export default function FormPage() {
             </div>
           </div>
           {/* ENVIO DE FORMULARIO 👇*/}
-          <button className="form-button">Register Tourist Activity</button>
+          <button className="form-button">Create</button>
 
           {formSubmitted && (
             <span style={{ color: spanForm === "true" ? "green" : "red" }}>
