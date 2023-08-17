@@ -1,0 +1,123 @@
+.container-AboutPage {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container-introduction {
+  width: 100%;
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 7% 2% 2% 2%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../CountryAbout.jpg");
+  background-size: cover;
+  background-position-y: center;
+}
+
+.introduction {
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 2px 2px 16px rgba(0, 0, 0, 0.5);
+}
+
+.introduction h1 {
+  font-size: 50px;
+  margin: 0;
+}
+
+.introduction p {
+  font-size: 20px;
+  margin-right: 15%;
+  margin-left: 15%;
+  line-height: 1.5;
+}
+
+.container-dataBlocks {
+  padding-top: 5em;
+  padding-bottom: 3em;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.container-aboutMe {
+  display: flex;
+  align-items: center;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.text-aboutMe h1 {
+  color: #2b3945;
+  margin: 0;
+}
+
+.text-aboutMe p {
+  color: #888;
+  line-height: 1.5;
+  font-size: 17px;
+}
+
+.aboutMe-image {
+  width: 220px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.aboutMe-imgSpace {
+  margin-right: 30px;
+}
+
+/* Estilos para pantallas pequeñas */
+@media screen and (max-width: 767px) {
+  .container-dataBlocks {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+  }
+
+  .container-aboutMe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+  }
+  .introduction h1 {
+    font-size: 30px;
+  }
+
+  .introduction p {
+    font-size: 16px;
+    margin-right: 5%;
+    margin-left: 5%;
+  }
+
+  .text-aboutMe h1 {
+    font-size: 24px;
+  }
+
+  .text-aboutMe p {
+    font-size: 14px;
+  }
+
+  .aboutMe-image {
+    padding-bottom: 2em;
+  }
+
+  .aboutMe-imgSpace {
+    margin: 0;
+  }
+  
+}

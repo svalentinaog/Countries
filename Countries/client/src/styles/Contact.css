@@ -1,0 +1,122 @@
+.container-Contact {
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.container-contactInfo {
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 6% 2% 2% 2%;
+  background-color: #242d35;
+}
+
+.contactInfo {
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 2px 2px 16px rgba(0, 0, 0, 0.5);
+}
+
+.contactInfo h1 {
+  font-size: 60px;
+  margin: 0;
+}
+
+.contactInfo p {
+  font-size: 20px;
+  margin-right: 15%;
+  margin-left: 15%;
+  line-height: 1.5;
+}
+
+.container-dataContact {
+  height: 100%;
+  padding-top: 8.5em;
+  padding-bottom: 3.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container-contactMe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.container-contactMe > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.cardContact {
+  align-items: center;
+  width: 400px;
+  color: #242d35;
+  font-size: 20px;
+}
+
+.contactMe-image {
+  width: 80px; /* Ajusta el ancho de la imagen según sea necesario */
+  height: auto;
+  margin-right: 10px; /* Agregado para separar la imagen del texto */
+}
+
+.contactMe-imgSpace {
+  margin-right: 30px;
+}
+
+/* Estilos para pantallas pequeñas */
+@media screen and (max-width: 767px) {
+  .container-contactInfo {
+    height: auto; /* Ajusta la altura automáticamente en pantallas pequeñas */
+    padding: 8% 2%; /* Ajusta el padding en pantallas pequeñas */
+  }
+
+  .container-contactMe {
+    flex-direction: column; /* Cambia la dirección de los elementos para apilarlos en pantallas pequeñas */
+    margin-left: 0;
+    margin-right: 0;
+    gap: 1em; /* Agrega un espacio entre las tarjetas en pantallas pequeñas */
+  }
+
+  .cardContact {
+    width: 100%; /* Ajusta el ancho de las tarjetas al 100% en pantallas pequeñas */
+    text-align: center; /* Centra el contenido de las tarjetas en pantallas pequeñas */
+    margin: 0 auto; /* Centra las tarjetas horizontalmente en pantallas pequeñas */
+  }
+
+  .contactMe-image {
+    margin: 0 auto 10px; /* Centra la imagen en pantallas pequeñas y agrega espacio inferior */
+    width: 70px;
+    margin: 5px;
+  }
+
+  .text-contactMe {
+    text-align: center; /* Centra el texto en pantallas pequeñas */
+  }
+
+  .contactInfo h1 {
+    font-size: 30px;
+  }
+
+  .contactInfo p {
+    font-size: 17px;
+  }
+
+  .cardContact p {
+    font-size: 17px;
+  }
+}

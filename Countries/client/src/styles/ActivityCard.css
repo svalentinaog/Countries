@@ -1,0 +1,113 @@
+/* Esta clase la colocamos en el home */
+.container-allactivities-cards {
+  margin: 3em;
+  padding: 4em;
+  border: 2px solid #a4acaf;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+/* Esta clase la colocamos en el home */
+.allactivities {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.cardActivities {
+  align-items: center;
+  width: 220px;
+  height: auto;
+  border-radius: 7px;
+  padding: 0em;
+  background: #52c5aa;
+}
+
+.nameActivity {
+  background-color: #2ab595;
+  padding: 1.5em;
+  border-radius: 7px 7px 0px 0px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.activity-row {
+  padding: 1em;
+  font-size: 17px;
+  align-items: center;
+  color: #f2f2f2;
+}
+
+#nameActivities {
+  font-size: 20px;
+  color: #f2f2f2;
+  text-transform: uppercase;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.horizontal-line {
+  margin: 10px 0;
+  border: 0;
+  border-top: 1px solid #ffffff;
+}
+
+.deleteActivity {
+  width: 25px;
+  transition: transform 0.3s ease;
+}
+
+.deleteActivity:hover {
+  /* transform: scale(0.9);  Bajar escala */
+  transform: scale(1.1);
+}
+
+.editActivity {
+  width: 25px;
+  transition: transform 0.3s ease;
+}
+
+.editActivity:hover {
+  transform: scale(1.1);
+}
+
+.deleteButton {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.editButton {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.activityOptions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Estilos para dispositivos móviles */
+@media screen and (max-width: 767px) {
+  .country-cardActivities {
+    width: 150px;
+    align-items: center;
+    height: auto;
+    padding: 3em;
+    border: 2px solid #a4acaf;
+    border-radius: 7px;
+    background-color: rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 0px 12px 4px rgba(20, 42, 114, 0.1);
+  }
+}

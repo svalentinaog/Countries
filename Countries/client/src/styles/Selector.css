@@ -1,0 +1,85 @@
+.selectors {
+  display: block;
+  width: 100%;
+  height: 45px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #f0f1f2;
+  font-size: 14px;
+  color: #757575;
+}
+
+.selectors:hover {
+  background-color: rgb(219, 218, 218);
+}
+
+.selectors:focus {
+  outline: none;
+}
+
+.selectorsMultiple {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #f0f1f2;
+  font-size: 14px;
+  color: #757575;
+}
+
+.selectorsMultiple option {
+  font-size: 14px;
+  padding: 3px 11px;
+  background-color: transparent; /* Restablece el fondo por defecto */
+  transition: background-color 0.3s ease; /* Agrega una transición suave */
+}
+
+.selectorsMultiple option:hover {
+  background-color: #2ab595; /* Cambia el color de fondo al hacer hover */
+  color: white; /* Cambia el color del texto al hacer hover */
+}
+
+/* Agrega estilos al contenedor de opciones seleccionadas */
+.selected-options {
+  margin-top: 10px; /* Ajusta según sea necesario */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0px 10px;
+}
+
+.selected-optionsImg {
+  width: 32px;
+  height: 32px;
+}
+
+.selected-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.selectorsMultiple:hover {
+  background-color: rgb(219, 218, 218);
+}
+
+.selectorsMultiple:focus {
+  outline: none;
+}
+
+/* Estilos específicos para dispositivos móviles */
+@media screen and (max-width: 767px) {
+  .selectorsMultiple {
+    font-size: 14px; /* Ajustar el tamaño de fuente para dispositivos móviles */
+  }
+}
+
+/* Estilos específicos para dispositivos móviles */
+@media screen and (max-width: 767px) {
+  .selectors {
+    font-size: 14px; /* Ajustar el tamaño de fuente para dispositivos móviles */
+  }
+}

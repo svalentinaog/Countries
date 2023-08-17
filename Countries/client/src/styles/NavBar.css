@@ -1,0 +1,97 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2b3945;
+  color: #000000;
+  padding: 5px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilos para NavBar con transparencia cuando se hace scroll */
+nav.scrolling {
+  background-color: rgba(43, 57, 69, 0.9);
+  backdrop-filter: blur(3px);
+}
+
+nav div {
+  display: flex;
+  align-items: center;
+}
+
+nav div a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+nav div a:hover {
+  text-decoration: underline;
+}
+
+.logo-nav {
+  width: 55px;
+  height: auto;
+  padding: 0px;
+  margin-left: 100px;
+}
+
+.menu-nav {
+  margin-right: 100px;
+  gap: 10px;
+}
+
+.button-logout,
+.button-about,
+.button-activities {
+  font-size: 17px;
+  cursor: pointer;
+  border: none;
+  width: auto;
+  background: transparent;
+  color: white;
+  margin: 5px;
+  
+}
+
+.button-about:hover,
+.button-logout:hover,
+.button-activities:hover {
+  color: #5de0e6;
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    position: relative;
+  }
+
+  .logo-nav {
+    margin: 0; /* Centra verticalmente y elimina margen izquierdo */
+    display: block; /* Asegura que ocupe todo el ancho disponible */
+  }
+  .logo-container {
+    margin-top: 15px;
+    display: block; /* Asegura que ocupe todo el ancho disponible */
+    
+  }
+  
+  .menu-nav {
+    margin: 7px 0;
+    gap: 10px;
+  }
+
+  .button-activities,
+  .button-about,
+  .button-logout {
+    font-size: 16px;
+    width: 100%;
+    padding: 10px 0;
+    /* margin: 0px 10px; */
+  }
+}

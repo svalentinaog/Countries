@@ -1,0 +1,77 @@
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3em 0 1.5em;
+  margin: 3% 2% 0;
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 65%;
+  gap: 7px;
+}
+
+.button-refresh {
+  font-size: 17px;
+  cursor: pointer;
+  border-radius: 3px;
+  border: 1px solid #a4acaf;
+  width: auto;
+  height: 40px;
+  background: transparent;
+  color: #a4acaf;
+  padding: 7px 20px;
+}
+
+.button-refresh:hover {
+  background: #a4acaf;
+  color: #ffffff;
+}
+
+#filteredSelector {
+  font-size: 17px;
+}
+
+.text-header {
+  text-align: center;
+  margin-bottom: 0.5em;
+  color: #2b3945;
+}
+
+.text-header h1 {
+  font-size: 25px;
+}
+
+.text-header p {
+  font-size: 17px;
+}
+
+/* Estilos para el componente SearchBar en dispositivos móviles */
+@media screen and (max-width: 767px) {
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .button-refresh {
+    font-size: 14px;
+  }
+
+  .button-refresh {
+    font-size: 14px;
+    margin: 10px auto; /* Centrar horizontalmente */
+    display: block; /* Ocupar todo el ancho disponible */
+  }
+
+  #filteredSelector {
+    font-size: 14px;
+    width: 100%; /* Ocupar todo el ancho disponible */
+  }
+}
