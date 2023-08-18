@@ -2,12 +2,11 @@ import React from "react";
 import "../styles/ActivityDetail.css";
 
 export default function ActivityDetail({ activities }) {
-  console.log("Actividad(es) asociada(s) a este País ☕😉", activities);
 
   return (
     <div>
       {activities.map((activity) => (
-        <div key={activity.id} className="activity-card">
+        <div key={activity.id}>
           <div className="country-cardActivity">
             <div className="detail-row">
               <span className="detail-property" id="nameActivity">
@@ -15,9 +14,7 @@ export default function ActivityDetail({ activities }) {
               </span>
             </div>
             <div className="detail-row" id="seasonActivity">
-              <span className="detail-value">
-                Season: {activity.season}
-              </span>
+              <span className="detail-value">Season: {activity.season}</span>
             </div>
             <div className="detail-row">
               <span className="detail-value">
@@ -35,4 +32,3 @@ export default function ActivityDetail({ activities }) {
     </div>
   );
 }
-

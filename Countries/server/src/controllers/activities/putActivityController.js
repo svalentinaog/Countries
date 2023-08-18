@@ -1,7 +1,6 @@
-// Importamos el modelo 'Activity' desde el archivo 'db.js' ubicado en una carpeta superior (presumiblemente es el modelo que representa la tabla de actividades en la base de datos)
 const { Activity } = require("../../db");
 
-// Definimos un controlador asincrónico para actualizar una actividad existente
+// Controlador asincrónico para actualizar una actividad existente
 const putActivityController = async (
   idPais,
   name,
@@ -39,5 +38,4 @@ const putActivityController = async (
   }
 };
 
-// Exportamos el controlador para que pueda ser utilizado en otro lugar, por ejemplo, en el manejador de una ruta que actualiza actividades.
 module.exports = { putActivityController };

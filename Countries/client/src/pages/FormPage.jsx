@@ -30,8 +30,8 @@ export default function FormPage() {
     countryId: "",
   });
 
-  // VARIABLES
-  const formRef = useRef(null); // Referencia al formulario
+  // Referencia al formulario para efectos
+  const formRef = useRef(null); // Para acceder a propiedades y métodos del formulario, como reset(). 
 
   const handleChange = (event) => {
     const property = event.target.name;

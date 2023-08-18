@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 export default function NavBar() {
   const [scrolling, setScrolling] = useState(false);
 
+  // Nav flotante
   useEffect(() => {
     window.addEventListener("scroll", handleScroll); // Agregamos un event listener al componente para detectar el scroll
     return () => {

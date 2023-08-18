@@ -7,18 +7,7 @@ const router = Router();
 router.get("/", getCountriesHandler ); // Obtener todos los Paises.
 router.get("/:idPais", getCountryByIdHandler); // Obtener el detalle de un País en específico por su Id.
 
-// router.get("/", (req, res) => {
-//   res.status(200).send("Estoy en Countries!");
-// });
-//
-// router.get("/:id", (req, res) => {
-//   res.status(200).send("Estoy en Country por Id!");
-// });
-
 module.exports = router;
-
-
-
 
 
 

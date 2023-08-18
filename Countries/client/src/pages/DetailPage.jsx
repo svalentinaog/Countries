@@ -13,7 +13,7 @@ export default function DetailPage() {
   const [hasActivities, setHasActivities] = useState(false); // Bandera
   const [isLoading, setIsLoading] = useState(true); // Estado Loader
 
-  // Obtener los datos del País por su ID cuando el parámetro `idPais` cambie
+  // Obtener los datos del País por su ID `idPais` 
   useEffect(() => {
     setIsLoading(true);
     axios(`http://localhost:3001/countries/${idPais}`).then(({ data }) => {

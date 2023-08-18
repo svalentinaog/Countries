@@ -7,10 +7,9 @@ const activitiesRouter = require("./activitiesRouter");
 const router = Router(); // Instancia de enrutador de Express
 
 // Configuración de rutas y sus correspondientes módulos de enrutamiento
+router.use("/countries", countriesRouter);// módulo de rutas 'countries' para las rutas que comiencen con '/countries'.
+router.use("/activities", activitiesRouter);// módulo de rutas 'activities' para las rutas que comiencen con '/activities'
 
-router.use("/countries", countriesRouter);// Usar el módulo de rutas 'countries' para las rutas que comiencen con '/countries'. Cualquier peticion que vaya a "/" (barra) countries, que vaya a countriesRouter.
-router.use("/activities", activitiesRouter);// Usar el módulo de rutas 'activities' para las rutas que comiencen con '/activities'
 
-
-module.exports = router; // Exportación del enrutador configurado para su uso en otros archivos
+module.exports = router; 
 

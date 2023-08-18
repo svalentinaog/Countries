@@ -1,7 +1,6 @@
-// Importamos el modelo 'Activity' desde el archivo 'db.js' ubicado en una carpeta superior (presumiblemente es el modelo que representa la tabla de actividades en la base de datos)
 const { Activity } = require("../../db");
 
-// Definimos un controlador asincrónico para crear una nueva actividad
+// Controlador asincrónico para crear una nueva actividad
 const postActivityController = async (
   name,
   difficulty,
@@ -15,6 +14,7 @@ const postActivityController = async (
       where: { name },
     });
 
+    // Si ya existe, lanzamos un error
     if (existingActivity) {
       throw new Error("La actividad turística ya existe");
     }
@@ -35,10 +35,8 @@ const postActivityController = async (
     
   } catch (error) {
     console.log(error, "Fallo el crear la actividad 😡");
-    throw error; // Lanza el error para manejarlo en el handler
+    throw error; 
   }
 };
 
-
-// Exportamos el controlador para que pueda ser utilizado en otro lugar, por ejemplo, en el manejador de una ruta que crea nuevas actividades.
 module.exports = { postActivityController };

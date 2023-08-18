@@ -23,22 +23,22 @@ const server = require("./src/server");
 const { conn } = require("./src/db.js");
 const fetchDB = require("./src/utils/fetchApiData");
 
-// Definimos una constante 'PORT' (puerto) con el valor 3001.
 const PORT = 3001;
 
-// Sincronizamos la base de datos mediante la función 'sync' de Sequelize.
-// La opción 'force: false' indica que no se debe forzar la sincronización, es decir, no se eliminarán tablas existentes ni se recrearán y true lo contrario.
-// Esta función devuelve una promesa que resuelve cuando la sincronización se ha completado.
 conn
   .sync({ force: false })
   .then(() => {
-    // Una vez que la sincronización de la base de datos se ha completado con éxito, iniciamos el servidor para que escuche en el puerto especificado (3001).
-    // La función 'listen' de 'server' se utiliza para iniciar el servidor de Express y escuchar en el puerto especificado.
-    // Luego, se muestra un mensaje en la consola indicando que el servidor está escuchando en el puerto.
-    // También se llama a la función 'fetchDB' para obtener datos de una API externa y cargarlos en la base de datos.
     server.listen(PORT, async () => {
       console.log(`🐝 Server listening on port ${PORT} 🐝`);
       fetchDB();
     });
   })
   .catch((error) => console.error(error));
+
+// Sincronizamos la base de datos mediante la función 'sync' de Sequelize.
+// La opción 'force: false' indica que no se debe forzar la sincronización, es decir, no se eliminarán tablas existentes ni se recrearán y true lo contrario.
+// Esta función devuelve una promesa que resuelve cuando la sincronización se ha completado.
+// Una vez que la sincronización de la base de datos se ha completado con éxito, iniciamos el servidor para que escuche en el puerto especificado (3001).
+// La función 'listen' de 'server' se utiliza para iniciar el servidor de Express y escuchar en el puerto especificado.
+// Luego, se muestra un mensaje en la consola indicando que el servidor está escuchando en el puerto.
+// También se llama a la función 'fetchDB' para obtener datos de una API externa y cargarlos en la base de datos.
