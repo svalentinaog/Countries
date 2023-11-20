@@ -40,10 +40,6 @@ Asegúrate de tener Node.js y npm instalados en tu máquina antes de comenzar.
 
 5. **Explora la Aplicación**: Abre tu navegador y visita la URL local donde se está ejecutando la aplicación. Si no estás seguro de la URL exacta, verifica la consola o la configuración local.
 
-## Contribuciones
-
-¡Contribuciones son bienvenidas! Si encuentras algún problema o tienes sugerencias para mejorar la aplicación, por favor crea un *issue* o envía una *pull request*.
-
 ---
 
 Esperamos que disfrutes explorando el mundo a través de Countries. ¡Feliz viaje! 🌍✈️
