@@ -38,7 +38,7 @@ Asegúrate de tener Node.js y npm instalados en tu máquina antes de comenzar.
 
     - Después, en la carpeta `client`, ejecuta `npm run dev` para iniciar el servidor de desarrollo del cliente.
 
-5. **Explora la Aplicación**: Abre tu navegador y visita [http://localhost:3000](http://localhost:3000) para comenzar a explorar Countries API.
+5. **Explora la Aplicación**: Abre tu navegador y visita la URL local donde se está ejecutando la aplicación. Si no estás seguro de la URL exacta, verifica la consola o la configuración local.
 
 ## Contribuciones
 
