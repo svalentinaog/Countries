@@ -5,11 +5,9 @@ class Validator {
 
   static isString(string, name, maxLength) {
     this.isDefined(string, name);
-    // El valor proporcionado no es una cadena.
     if (typeof string !== "string") {
       throw new HttpsError(400, `😡 The ${name} value is not a string.`);
     }
-    // El valor proporcionado es una cadena vacía.
     if (string.length === 0) {
       throw new HttpsError(
         400,
@@ -18,7 +16,6 @@ class Validator {
     }
     const length = string.length;
 
-    // El valor proporcionado excede la longitud máxima permitida.
     if (length > maxLength) {
       throw new HttpsError(
         400,
@@ -37,7 +34,6 @@ class Validator {
   static isNumber(number, name, maximum) {
     this.isDefined(number, name);
     number = Number(number);
-    // El valor proporcionado no es un número.
     if (
       isNaN(number) ||
       !Number.isInteger(number) ||
@@ -45,7 +41,6 @@ class Validator {
     ) {
       throw new HttpsError(400, `❗The ${name} value is not a number#️⃣.`);
     }
-    // El valor proporcionado excede la longitud máxima permitida.
     if (number > maximum) {
       throw new HttpsError(
         400,
@@ -58,7 +53,6 @@ class Validator {
   static isArray(array, name) {
     this.isDefined(array, name);
 
-    // El valor proporcionado no es una matriz.
     if (!Array.isArray(array)) {
       throw new HttpsError(400, `❗The ${name} value is not an array.`);
     }
@@ -67,7 +61,6 @@ class Validator {
   }
 
   static isDefined(value, name) {
-    // El valor proporcionado no está definido.
     if (typeof value === "undefined") {
       throw new HttpsError(400, `❌ The data "${name}" is not defined.`);
     }
@@ -76,16 +69,3 @@ class Validator {
 }
 
 module.exports = Validator;
-
-/*
-  🐝 La clase Validator proporciona una manera consistente y reutilizable de validar diferentes tipos de datos
-  antes de su procesamiento. Esto puede ayudar a mejorar la robustez y la seguridad de una aplicación al garantizar que 
-  los datos recibidos cumplan con ciertos estándares y criterios definidos. El uso de una clase de validación como 
-  esta puede simplificar el código y mejorar la legibilidad, ya que centraliza la lógica de validación en un solo lugar.
-*/
-
-/*
-  🤯"static" se usa para definir miembros (métodos o propiedades) que pertenecen a una clase en lugar de a una instancia 
-  particular de esa clase. Esto significa que los miembros estáticos no están vinculados a objetos individuales creados a 
-  partir de la clase, sino que están asociados directamente con la propia clase. 
-*/

@@ -1,14 +1,14 @@
-import axios from "axios";
 import "../styles/UpdateActivityForm.css";
+import React, { useState, useEffect } from "react";
 import Selector from "../components/Selector";
 import Validation from "../utils/Validation";
-import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { updateActivityById } from "../redux/slice/countryActions";
 import { countries } from "../redux/slice/countryActions";
+import axios from "axios";
 
-export default function UpdateActivityForm({ activity }) {
+export default function UpdateActivityForm() {
   const allcountries = useSelector((state) => state.country.countries);
   const dispatch = useDispatch();
   const { activityId } = useParams();
@@ -54,7 +54,7 @@ export default function UpdateActivityForm({ activity }) {
   const handleUpdateActivity = async (updatedData) => {
     try {
       dispatch(updateActivityById(activityId, updatedData));
-      setUpdateSuccess(true); // Actualización exitosa
+      setUpdateSuccess(true); 
     } catch (error) {
       console.error("Error al actualizar la actividad:", error.message);
     }
@@ -64,7 +64,7 @@ export default function UpdateActivityForm({ activity }) {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
     setErrors(Validation({ ...formData, [name]: value }));
-    setUpdateSuccess(false); // Resetear el mensaje de éxito al editar el formulario
+    setUpdateSuccess(false); 
   };
 
   return (
@@ -74,13 +74,11 @@ export default function UpdateActivityForm({ activity }) {
           className="updateForm-create"
           onSubmit={(e) => {
             e.preventDefault();
-            // Si no hay errores, procede con la actualización
             if (Object.values(errors).every((error) => !error)) {
               handleUpdateActivity(formData);
             }
           }}
         >
-          {/* IMAGEN REPRESENTATIVA O PORTADA LATERAL*/}
           <div className="logo-UpdateForm-container">
             <img
               src="/images/continentes.png"
@@ -90,7 +88,6 @@ export default function UpdateActivityForm({ activity }) {
             />
           </div>
 
-          {/* NAME */}
           <label htmlFor="name" className="updateForm-create_label" />
           <input
             className={
@@ -106,7 +103,6 @@ export default function UpdateActivityForm({ activity }) {
           />
           <span className="spanError">{errors.name}</span>
 
-          {/* DIFFICULTY */}
           <label htmlFor="difficulty" className="updateForm-create_label" />
           <input
             className={
@@ -122,7 +118,6 @@ export default function UpdateActivityForm({ activity }) {
           />
           <span className="spanError">{errors.difficulty}</span>
 
-          {/* DURATION */}
           <label htmlFor="duration" className="updateForm-create_label" />
           <input
             className={
@@ -140,7 +135,6 @@ export default function UpdateActivityForm({ activity }) {
           />
           <span className="spanError">{errors.duration}</span>
 
-          {/* SEASON */}
           <label htmlFor="season" className="updateForm-create_label" />
           <div
             id="country-selector"
@@ -167,7 +161,6 @@ export default function UpdateActivityForm({ activity }) {
           </div>
           <span className="spanError">{errors.season}</span>
 
-          {/* IDS COUNTRIES */}
           <label htmlFor="country" className="updateForm-create_label" />
           <div
             className={
@@ -207,7 +200,6 @@ export default function UpdateActivityForm({ activity }) {
             </p>
           )}
 
-          {/* Mostrar error */}
           {Object.values(errors).some((error) => error) && (
             <p className="generalError">
               Please make sure to send the data correctly.
@@ -216,7 +208,6 @@ export default function UpdateActivityForm({ activity }) {
         </form>
       </div>
 
-      {/* BOTÓN IR ATRÁS */}
       <button
         id="goBackButton"
         type="button"

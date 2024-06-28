@@ -3,14 +3,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Card({ country }) {
-  // Función para manejar el error de carga de imagen 🖼️
   const handleImageError = (event) => {
-    event.target.onerror = null; // Evita el bucle infinito al asignar null al evento onerror
-    event.target.src = "/countryNotFound.png"; // Carga una imagen por defecto en caso de error
+    event.target.onerror = null; 
+    event.target.src = "/countryNotFound.png";
   };
 
-  // El método substring se utiliza para extraer una porción de una cadena.
-  // Los parámetros que se pasan son los índices de inicio y final.
   const chainClipping = (str, maxLength) => {
     if (str.length > maxLength) {
       return str.substring(0, maxLength) + "...";

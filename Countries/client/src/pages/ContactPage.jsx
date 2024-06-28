@@ -1,5 +1,5 @@
-import BaseLayout from "../components/BaseLayout";
 import "../styles/Contact.css";
+import BaseLayout from "../components/BaseLayout";
 
 export default function ContactPage() {
   return (

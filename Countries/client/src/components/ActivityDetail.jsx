@@ -1,5 +1,5 @@
-import React from "react";
 import "../styles/ActivityDetail.css";
+import React from "react";
 
 export default function ActivityDetail({ activities }) {
 

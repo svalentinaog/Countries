@@ -1,8 +1,7 @@
 import "../styles/SearchBar.css";
-
+import React, { useEffect, useState } from "react";
 import Selector from "./Selector";
 import Input from "./Input";
-import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   countryByName,
@@ -14,61 +13,51 @@ import {
 } from "../redux/slice/countryActions";
 
 export default function SearchBar({ setCurrentPage }) {
-  // Obtener la lista de actividades de los países desde el estado global
   const countriesActivity = useSelector((state) => state.country.activities);
   const [countryName, setCountryName] = useState("");
 
-  // Inicializar el dispatcher
   const dispatch = useDispatch();
 
-  // Cargar la lista de actividades al cargar el componente
   useEffect(() => {
     dispatch(activities());
   }, []);
 
-  // Manejar la búsqueda de país
   const findCountry = (e) => {
-    setCurrentPage(0); // Reiniciar la página al realizar una búsqueda
+    setCurrentPage(0); 
     setCountryName(e.target.value);
-    dispatch(countryByName(e.target.value)); // Enviar el nombre del país a buscar
+    dispatch(countryByName(e.target.value));
   };
 
-  // Manejadores de filtros
-
   const handleSorted = (e) => {
-    dispatch(order(e.target.value)); // Enviar el valor del ordenamiento seleccionado
+    dispatch(order(e.target.value)); 
   };
 
   const handleContinent = (e) => {
-    setCurrentPage(0); // Reiniciar la página al seleccionar un continente
-    dispatch(filteredContinent(e.target.value)); // Enviar el filtro de continente seleccionado
+    setCurrentPage(0); 
+    dispatch(filteredContinent(e.target.value)); 
   };
 
   const handlePopulation = (e) => {
-    setCurrentPage(0); // Reiniciar la página al seleccionar un continente
-    dispatch(filteredPopulation(e.target.value)); // Enviar el filtro de población seleccionado
+    setCurrentPage(0); 
+    dispatch(filteredPopulation(e.target.value)); 
   };
 
   const handleActivity = (e) => {
-    setCurrentPage(0); // Reiniciar la página al seleccionar una actividad
-    dispatch(filteredActivity(e.target.value)); // Enviar la actividad seleccionada
+    setCurrentPage(0); 
+    dispatch(filteredActivity(e.target.value)); 
   };
 
-  // Función para limpiar los filtros y recargar la página
   const clean = () => {
     window.location.reload();
   };
 
   return (
     <div className="search-bar">
-      {/* Sección de encabezado */}
       <div className="text-header">
         <h1>Countries</h1>
         <p>Get detailed information on each country.</p>
       </div>
-      {/* Contenedor de búsqueda */}
       <div className="search-container">
-        {/* Componente Input para el campo de búsqueda */}
         <Input
           value={countryName}
           onChange={findCountry}
@@ -130,7 +119,6 @@ export default function SearchBar({ setCurrentPage }) {
           />
         )}
 
-        {/* Botón para limpiar los filtros y recargar la página */}
         <button onClick={clean} className="button-refresh">
           Refresh
         </button>

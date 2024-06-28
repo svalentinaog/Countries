@@ -1,4 +1,5 @@
 import "../styles/ActivityCard.css";
+import React from "react";
 import { Link } from "react-router-dom";
 
 export default function ActivityCard({
@@ -8,22 +9,17 @@ export default function ActivityCard({
 }) {
   return (
     <div className="cardActivities">
-      {/*🐝 Nombre */}
       <div className="nameActivity">
         <span id="nameActivities">
           {activity?.name}
         </span>
       </div>
       <div className="activity-row">
-        {/*🐝 Season */}
         <p className="detail-value">Season: {activity?.season}</p>
-        {/*🐝 Dificultad */}
         <p className="detail-value">Difficulty: {activity?.difficulty}</p>
-        {/*🐝 Duracion */}
         <p className="detail-value">Duration: {activity?.duration}</p>
         <hr className="horizontal-line" />
         <div className="activityOptions">
-          {/*🐝 Delete */}
           <button className="deleteButton" onClick={handleDeleteActivity}>
             <img
               src="/images/eliminar.png"
@@ -31,7 +27,6 @@ export default function ActivityCard({
               className="deleteActivity"
             />
           </button>
-          {/*🐝 Edit / Update */}
           <Link
             to={`/edit/${activity.id}`}
             className="editButton"

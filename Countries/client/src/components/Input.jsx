@@ -7,7 +7,7 @@ export default function Input({ onChange, placeholder }) {
       <input
         className="input"
         placeholder={placeholder}
-        onChange={onChange} // Controlador de eventos para el cambio del valor del campo
+        onChange={onChange} 
       />
       <i className="material-icons search-icon">search</i>
     </div>

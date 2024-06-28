@@ -12,8 +12,8 @@ export default function FormPage() {
   const allcountries = useSelector((state) => state.country.countries);
   const dispatch = useDispatch();
 
-  const [formSubmitted, setFormSubmitted] = useState(false); // Estado para indicar si el formulario ha sido enviado vacio
-  const [spanForm, setSpanForm] = useState(""); // Estado para mostrar el mensaje de error
+  const [formSubmitted, setFormSubmitted] = useState(false); 
+  const [spanForm, setSpanForm] = useState(""); 
   const [form, setForm] = useState({
     name: "",
     difficulty: null,
@@ -30,19 +30,16 @@ export default function FormPage() {
     countryId: "",
   });
 
-  // Referencia al formulario para efectos
-  const formRef = useRef(null); // Para acceder a propiedades y métodos del formulario, como reset(). 
+  const formRef = useRef(null); 
 
   const handleChange = (event) => {
     const property = event.target.name;
     const value = event.target.value;
 
     if (property === "countryId") {
-      // Si es el campo countryId, actualiza el array de opciones seleccionadas
-      const selectedIds = [...form.countryId]; // Copia el array existente
+      const selectedIds = [...form.countryId]; 
 
       if (selectedIds.includes(value)) {
-        // Si ya está seleccionado, quitarlo de la lista
         const index = selectedIds.indexOf(value);
         if (index > -1) {
           selectedIds.splice(index, 1);
@@ -53,19 +50,16 @@ export default function FormPage() {
 
       setForm({ ...form, countryId: selectedIds });
     } else {
-      // Para otros campos, actualiza normalmente
       setForm({ ...form, [property]: value });
     }
 
     setErrors(Validation({ ...form, [property]: value }));
   };
 
-  // Obtener los IDs de letras
   const countryIds = allcountries.map((country) => ({
     id: country.id,
   }));
 
-  // Funcion para crear/registrar nueva actividad
   const registerActivity = async (event) => {
     event.preventDefault();
     setFormSubmitted(true);
@@ -73,14 +67,12 @@ export default function FormPage() {
       const created = await postActivity(form);
       console.log(created, "Creando Actividad 🐝😇");
       setSpanForm("true");
-      formRef.current.reset(); // Limpiar los campos del formulario
+      formRef.current.reset(); 
     } catch (error) {
       console.log("Algo falló al momento de crear la actividad 🤷‍♀️:", error);
       if (error.response && error.response.data && error.response.data.error) {
-        // Si el error es del backend y contiene un mensaje específico, se mostrara
         setSpanForm(error.response.data.error);
       } else {
-        // Si el error no tiene un mensaje específico, se mostrara este mensaje genérico
         setSpanForm(
           "Error al crear la actividad. Por favor, intenta de nuevo."
         );
@@ -88,20 +80,16 @@ export default function FormPage() {
     }
   };
 
-  // EFECTOS
-  // EFECTO para limpiar el estado `formSubmitted` cuando se escriba en el formulario
   useEffect(() => {
     const handleChangeInForm = () => {
       setFormSubmitted(false);
     };
 
-    // Agregar event listener para cada input del formulario
     const formInputs = formRef.current.querySelectorAll("input");
     formInputs.forEach((input) => {
       input.addEventListener("input", handleChangeInForm);
     });
 
-    // Limpiar event listeners cuando el componente se desmonte
     return () => {
       formInputs.forEach((input) => {
         input.removeEventListener("input", handleChangeInForm);
@@ -121,7 +109,6 @@ export default function FormPage() {
     <div className="container-form">
       <div className="pageForm">
         <form ref={formRef} className="form-create" onSubmit={registerActivity}>
-          {/* IMAGEN REPRESENTATIVA O PORTADA LATERAL*/}
           <div className="logo-form-container">
             <img
               src="/images/CountryForm00.png"
@@ -131,11 +118,8 @@ export default function FormPage() {
             />
           </div>
 
-          {/* FORMULARIO ENTERO: */}
           <div className="form-columns">
-            {/* CAMPOS DEL FORMULARIO: */}
             <div className="form-column">
-              {/* NAME */}
               <label htmlFor="name" className="form-create_label" />
               <input
                 className={
@@ -149,7 +133,6 @@ export default function FormPage() {
               />
               <span className="spanError">{errors.name}</span>
 
-              {/* DIFFICULTY */}
               <label htmlFor="difficulty" className="form-create_label" />
               <input
                 className={
@@ -167,7 +150,6 @@ export default function FormPage() {
               />
               <span className="spanError">{errors.difficulty}</span>
 
-              {/* DURATION */}
               <label htmlFor="duration" className="form-create_label" />
               <input
                 className={
@@ -185,7 +167,6 @@ export default function FormPage() {
               />
               <span className="spanError">{errors.duration}</span>
 
-              {/* SEASON */}
               <label htmlFor="season" className="form-create_label" />
               <div
                 id="country-selector"
@@ -209,7 +190,6 @@ export default function FormPage() {
               </div>
               <span className="spanError">{errors.season}</span>
 
-              {/* IDS COUNTRIES */}
               <label htmlFor="country" className="form-create_label" />
               <div
                 className={
@@ -253,7 +233,7 @@ export default function FormPage() {
               <span className="spanError">{errors.countryId}</span>
             </div>
           </div>
-          {/* ENVIO DE FORMULARIO 👇*/}
+
           <button className="form-button">Create</button>
 
           {formSubmitted && (
@@ -261,13 +241,13 @@ export default function FormPage() {
               {spanForm === "true"
                 ? "La actividad turística ha sido registrada con éxito."
                 : spanForm === "false"
-                ? "Error: Por favor complete el formulario correctamente."
-                : spanForm}
+                  ? "Error: Por favor complete el formulario correctamente."
+                  : spanForm}
             </span>
           )}
         </form>
       </div>
-      {/* BOTÓN IR ATRÁS */}
+
       <button
         id="goBackButton"
         type="button"

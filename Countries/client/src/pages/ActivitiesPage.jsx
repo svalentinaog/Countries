@@ -72,7 +72,7 @@ export default function ActivitiesPage() {
     dispatch(activities());
   }, [dispatch, allactivities]);
 
-  useEffect(() => {}, [allactivities]);
+  useEffect(() => { }, [allactivities]);
 
   return (
     <BaseLayout>
@@ -109,7 +109,6 @@ export default function ActivitiesPage() {
           </div>
         </div>
 
-        {/* Renderizar la paginación */}
         <div
           className="container-pagination-activities"
           style={{ marginBottom: "40px", marginTop: "50px" }}
@@ -127,7 +126,7 @@ export default function ActivitiesPage() {
           </div>
 
           <button
-            disabled={currentPage === pagesActivity - 1 || pagesActivity === 0} // Deshabilitar
+            disabled={currentPage === pagesActivity - 1 || pagesActivity === 0} 
             onClick={nextPage}
             className="next-button"
           >

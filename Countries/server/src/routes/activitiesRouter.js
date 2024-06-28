@@ -7,15 +7,10 @@ const { getActivityByIdHandler } = require("../handlers/activities/getActivityBy
 
 const router = Router();
 
-router.get("/", getActivitiesHandler); // Obtener todas las actividades turísticas.
-router.get("/:id", getActivityByIdHandler); // Obtener la actividad turística especificada.
-router.post("/", postActivityHandler); // Crear una nueva actividad turística.
-router.put("/:id", putActivityHandler); // Actualizar la actividad turística especificada.
-router.delete("/:id", deleteActivityHandler); // Eliminar la actividad turística especificada.
+router.get("/", getActivitiesHandler); 
+router.get("/:id", getActivityByIdHandler); 
+router.post("/", postActivityHandler); 
+router.put("/:id", putActivityHandler); 
+router.delete("/:id", deleteActivityHandler); 
 
 module.exports = router;
-
-// Rutas disponibles:
-// (POST method) http://localhost:3001/activities -> Crear una nueva actividad turística.
-// (GET method) http://localhost:3001/activities -> Obtener todas las actividades turísticas.
-// (PUT method) http://localhost:3001/activities/:idPais -> Obtener todas las actividades turísticas.

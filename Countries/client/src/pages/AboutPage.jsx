@@ -1,5 +1,5 @@
-import BaseLayout from "../components/BaseLayout";
 import "../styles/AboutPage.css";
+import BaseLayout from "../components/BaseLayout";
 
 export default function AboutPage() {
   return (
@@ -25,7 +25,7 @@ export default function AboutPage() {
             <div className="text-aboutMe">
               <h1>Founder</h1>
               <p>
-                Hi, I'm Valentina Ortiz, student of the SoyHenry bootcamp. It's
+                Hi, Im Valentina Ortiz, student of the SoyHenry bootcamp. Its
                 a pleasure to share with you this Countries App that I have
                 developed. Throughout my training at Henry, I have gained
                 experience in several essential web development technologies,

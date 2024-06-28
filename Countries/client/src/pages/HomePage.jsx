@@ -54,14 +54,14 @@ export default function HomePage() {
 
 
   useEffect(() => {
-    setIsLoading(true); // Establecer isLoading a true antes de obtener los países
+    setIsLoading(true); 
     dispatch(countries())
       .then(() => {
-        setIsLoading(false); // Establecer isLoading a false después de obtener los países
+        setIsLoading(false); 
       })
       .catch((error) => {
         console.error("Error fetching countries:", error);
-        setIsLoading(false); // Asegurarse de establecer isLoading a false en caso de error también
+        setIsLoading(false); 
       });
   }, [dispatch]);
 
@@ -77,7 +77,6 @@ export default function HomePage() {
         <>
           <SearchBar setCurrentPage={setCurrentPage} />
 
-          {/* Renderizar la paginación */}
           <div className="container-pagination" style={{ marginTop: "20px" }}>
             <button
               className="previous-button"
@@ -90,7 +89,7 @@ export default function HomePage() {
               <span className="current-page">{currentPage + 1}</span>
             </div>
             <button
-              disabled={currentPage === totalPages - 1} // Deshabilita el botón "Next" si es la última página
+              disabled={currentPage === totalPages - 1} 
               onClick={nextPage}
               className="next-button"
             >
@@ -111,7 +110,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Renderizar la paginación */}
             <div
               className="container-pagination"
               style={{ marginBottom: "40px", marginTop: "20px" }}
@@ -127,7 +125,7 @@ export default function HomePage() {
                 <span className="current-page">{currentPage + 1}</span>
               </div>
               <button
-                disabled={currentPage === totalPages - 1} // Deshabilita el botón "Next" si es la última página
+                disabled={currentPage === totalPages - 1} 
                 onClick={nextPage}
                 className="next-button"
               >

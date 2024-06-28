@@ -9,17 +9,14 @@ const postActivityController = async (
   countryId
 ) => {
   try {
-    // Verificar si la actividad ya existe por nombre
     const existingActivity = await Activity.findOne({
       where: { name },
     });
 
-    // Si ya existe, lanzamos un error
     if (existingActivity) {
       throw new Error("La actividad turística ya existe");
     }
 
-    // Si la actividad no existe, procedemos a crearla
     const newActivity = await Activity.create({
       name,
       difficulty,

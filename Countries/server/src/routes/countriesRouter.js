@@ -4,14 +4,7 @@ const { getCountryByIdHandler } = require("../handlers/countries/getCountryByIdH
 
 const router = Router();
 
-router.get("/", getCountriesHandler ); // Obtener todos los Paises.
-router.get("/:idPais", getCountryByIdHandler); // Obtener el detalle de un País en específico por su Id.
+router.get("/", getCountriesHandler ); 
+router.get("/:idPais", getCountryByIdHandler);
 
 module.exports = router;
-
-
-
-// Rutas disponibles:
-// (GET method) http://localhost:3001/countries -> Obtener todos los Paises
-// (GET method) http://localhost:3001/countries/:idPais -> Obtener el detalle de un País específico
-// (GET method) http://localhost:3001/countries?name=Country -> Obtener coincidencias.

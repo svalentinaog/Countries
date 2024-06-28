@@ -9,7 +9,6 @@ const initialState = {
   sortOrder: "asc", // Puede ser 'asc' o 'desc'
 };
 
-// Creación del slice de Countries
 export const countrySlice = createSlice({
   name: "country",
   initialState,
