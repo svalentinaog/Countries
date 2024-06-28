@@ -1,6 +1,6 @@
 # Countries
 
-Bienvenido a Countries, una aplicación que te permite explorar información detallada sobre todos los países existentes. Con funciones avanzadas de filtrado, búsqueda y la capacidad de crear actividades turísticas personalizadas, esta aplicación es tu ventanilla única para explorar el mundo.
+Bienvenido a Countries, una aplicación que te permite explorar información detallada sobre todos los países existentes. Con funciones de filtrado, búsqueda y la capacidad de crear actividades turísticas personalizadas.
 
 ## Características Principales
 
@@ -14,11 +14,11 @@ Bienvenido a Countries, una aplicación que te permite explorar información det
 
 ## Requisitos Previos
 
-Asegúrate de tener Node.js y npm instalados en tu máquina antes de comenzar.
+Asegúrate de tener Node.js y npm instalados en tu PC antes de comenzar.
 
 ## Configuración del Proyecto
 
-1. **Descarga del Repositorio**: Clona o descarga el repositorio desde [aquí](url_del_repositorio).
+1. **Descarga del Repositorio**: Clona o descarga el repositorio desde [aquí](https://github.com/svalentinaog/Countries.git).
 
 2. **Instalación de Dependencias**:
 
