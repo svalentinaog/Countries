@@ -1,6 +1,5 @@
 const { Activity } = require("../../db");
 
-// Controlador asincrónico para crear una nueva actividad
 const postActivityController = async (
   name,
   difficulty,

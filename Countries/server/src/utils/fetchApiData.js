@@ -5,7 +5,6 @@ const axios = require("axios");
 const fetchApi = async () => {
   try {
     const response = await axios.get("http://localhost:5000/countries");
-
     const data = await response.data.map((Country) => {
       return {
         id: Country.cca3,
@@ -28,11 +27,8 @@ const fetchApi = async () => {
 const fetchDB = async () => {
   try {
     const db = await Country.findAll();
-
     const countries = await fetchApi();
-
     await Country.bulkCreate(countries);
-
     console.log("Base de datos cargada");
   } catch (error) {
     console.log(error);

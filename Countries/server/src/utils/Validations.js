@@ -1,7 +1,6 @@
 const HttpsError = require("./HttpsError.js");
 
 class Validator {
-  // Métodos estáticos para validar datos
 
   static isString(string, name, maxLength) {
     this.isDefined(string, name);
